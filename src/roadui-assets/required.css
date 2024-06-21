@@ -1,0 +1,5 @@
+:deep(.required::before){
+    display: inline-block;
+    content: "*";
+    color:red;
+}

@@ -1,0 +1,91 @@
+.custom-submit {
+    padding: 10px 20px;
+}
+
+
+.table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-color: rgb(232, 235, 243);
+    border-width: 0.2px;
+}
+
+.center {
+    text-align: center;
+}
+.formbutton{
+    margin-bottom: 5px;
+}
+.formspan{
+    margin-bottom: 15px;
+}
+.formdiv{
+    margin-bottom: 15px;
+}
+.mainuse{
+    margin-top: 30px;
+}
+.formspan::before{
+    content: "*";
+    color: var(--el-color-danger);
+    margin-right: 4px;
+}
+.tabpane{
+    
+}
+.usedetail{
+    margin-left: 10px;
+    color: #19ACFB;
+    cursor: pointer;
+}
+input{
+    outline: none;
+    width: 99%;
+    height: 50px;
+    border-width: 0px;
+    line-height: 50px;
+    color: #50fa7b;
+}
+input:disabled {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+input[type="text" i]{
+    padding-block: 0;
+    padding-inline: 0;
+}
+
+:deep(.el-form-item){
+    margin-bottom: 18px;
+}
+:deep(.el-tabs--border-card>.el-tabs__content) {
+    padding: 15px 10px 15px 10px !important;
+    width: 900px;
+}
+
+:deep(.el-card__body) {
+    padding: 15px 10px 15px 10px !important;
+}
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active) {
+    background-color: #ffffff;
+}
+
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active.is-closable, .el-tabs--card > .el-tabs__header .is-active) {
+    margin: 0
+}
+
+:deep(.el-tabs__nav-scroll) {
+    border-left: #eef0f4 1px solid;
+}
+
+:deep(.el-tabs--card>.el-tabs__header) {
+    background-color: #f5f6f9;
+}
+
+:deep(.el-form-item__error){
+    z-index: 999;
+}
+
+:deep(.el-form-item__content .el-select){
+    width: 620px;
+}

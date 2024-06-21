@@ -1,0 +1,38 @@
+.custom-submit {
+    padding: 10px 20px;
+}
+
+:deep(.el-tabs--border-card>.el-tabs__content) {
+    padding: 15px 10px 15px 10px !important;
+    width: 900px;
+}
+
+.table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+:deep(.el-card__body) {
+    padding: 15px 10px 15px 10px !important;
+}
+
+.center {
+    text-align: center;
+}
+
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active) {
+    background-color: #ffffff;
+}
+
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active.is-closable, .el-tabs--card > .el-tabs__header .is-active) {
+    margin: 0
+}
+
+:deep(.el-tabs__nav-scroll) {
+    border-left: #eef0f4 1px solid;
+}
+
+:deep(.el-tabs--card>.el-tabs__header) {
+    background-color: #f5f6f9;
+}

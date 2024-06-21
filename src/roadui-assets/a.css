@@ -1,0 +1,16 @@
+a {
+    color: blue;
+}
+
+a:link {
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 14px;
+    color: red;
+    text-decoration: none;
+}
+

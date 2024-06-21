@@ -1,0 +1,86 @@
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    display: flex !important;
+    justify-content: space-between !important;
+    background-color: #343a40 !important;
+    align-items: center;
+    height: 40px;
+    padding: 8px 16px;
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+}
+
+.btn {
+    min-width: 48px;
+    padding: 8px 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    outline: 0;
+    transition: .1s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.btn-primary {
+    background-color: #3594F4;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #80b9f2;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.importBtn {
+    width: 440px;
+    height: 59px;
+    padding: 6px 12px;
+    font-size: 24px;
+}
+
+table {
+    width: 500px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.btn+.btn {
+    margin-left: 12px;
+}
+
+input {
+    display: none;
+}

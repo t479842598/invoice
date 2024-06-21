@@ -1,0 +1,1668 @@
+﻿body,
+html {
+    font-family: sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*关闭文本框自动输入的黄色背景*/
+:-webkit-autofill,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 111111s;
+    -webkit-transition: color 11111s ease-out, background-color 111111s ease-out;
+}
+
+a.roaduia {
+    color: var(--el-text-color-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.roaduia:hover {
+    text-decoration: underline;
+    color: var(--el-color-primary);
+}
+
+a.roaduia_ {
+    color: var(--el-color-primary-dark-2);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a.roaduia_:hover {
+    text-decoration: underline;
+    color: var(--el-color-primary);
+}
+
+/*svg不能选择，设置流程图上的文字不能选择*/
+svg {
+    user-select: none;
+}
+
+/*隐藏工行网银控件多出来的div*/
+#ClCache {
+    display: none
+}
+
+/*给弹出消息框加上阴影及字体加粗*/
+.roadui_msg {
+    box-shadow: var(--el-box-shadow-light);
+    font-weight: bold;
+}
+
+/*提示信息文字颜色*/
+.roadui_note {
+    color: var(--el-text-color-secondary);
+}
+
+.roadui_note1 {
+    color: var(--el-text-color-placeholder);
+}
+
+/*首页头部*/
+.roadui_header {
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+.roadui_header_logo {
+    float: left;
+    background-color: #ffffff;
+    height: inherit;
+    text-align: left;
+    border-right: 1px solid var(--el-color-primary-dark-2);
+}
+
+.roadui_header_logo1 {
+    float: left;
+    background-color: #ffffff !important;
+    height: inherit;
+    text-align: left;
+    border-right: 1px solid #ffffff !important;
+}
+
+.roadui_header_logo2 {
+    float: left;
+    background-color: #ffffff !important;
+    height: inherit;
+    text-align: left;
+    border-right: 1px solid #ffffff !important;
+}
+
+.roadui_header_logo3 {
+    float: left;
+    /* background-color: #0188fb !important; */
+    background-color: #ffffff !important;
+    height: inherit;
+    text-align: left;
+    /* border-right: 1px solid #0188fb !important; */
+    border-right: 1px solid #ffffff !important;
+}
+
+.roadui_header_logo_logo {
+    display: inline-block;
+    margin-left: 15px;
+    width: 180px;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.roadui_header_logo_logos {
+    display: inline-block;
+    margin-left: 8px;
+    width: 37px;
+    height: 54px;
+    vertical-align: middle;
+}
+
+.roadui_header_logo_logo_img {
+    border: none;
+    width: 180px;
+    height: 50px;
+}
+
+.roadui_header_logo_logo_imgs {
+    border: none;
+    width: 48px;
+    height: 49px;
+}
+
+.roadui_header_logo_title {
+    margin-left: 8px;
+    font-family: Broadway;
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: var(--el-fill-color-blank);
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.roadui_header_banner {
+    background-color: var(--el-color-primary);
+}
+
+.roadui_header_ico {
+    display: inline-block;
+}
+
+.roadui_header_ico i {
+    color: var(--el-fill-color-blank);
+    font-size: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    padding-left: 16px;
+}
+
+.roadui_header_ico i:hover {
+    color: var(--el-color-warning-light-3);
+}
+
+.roadui_header_shortuct {
+    display: inline-block;
+    margin-left: 12px;
+    height: inherit;
+}
+
+.roadui_header_shortuct>span {
+    padding: 0 14px;
+    display: inline-block;
+    height: inherit;
+}
+
+.roadui_header_shortuct>span:hover,
+.roadui_header_shortuct2 {
+    background-color: var(--el-color-primary-dark-2);
+    cursor: pointer;
+}
+
+.roadui_header_shortuct>span>svg {
+    color: var(--el-fill-color-blank);
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.roadui_header_shortuct>span>label {
+    color: var(--el-fill-color-blank);
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.roadui_header_shortuctmore {
+    color: var(--el-fill-color-blank);
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.roadui_header_shortuctmore>div>span>i {
+    vertical-align: -2px;
+}
+
+.roadui_header_right {
+    float: right;
+    padding-right: 12px;
+    height: inherit;
+}
+
+.roadui_header_right_header {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.roadui_header_right_headerimg {
+    width: 34px;
+    height: 34px;
+    border-radius: 34px;
+    vertical-align: middle;
+    border: 2px solid var(--el-color-primary-light-9);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/*首页头部白色*/
+.roadui_header_setdiv_imgdiv {
+    cursor: pointer;
+    border: 1px solid var(--el-border-color-lighter);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_header_setdiv_imgdiv1,
+.roadui_header_setdiv_imgdiv:hover {
+    box-shadow: var(--el-box-shadow);
+    cursor: pointer;
+    border: 1px solid var(--el-color-primary);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_header_logo1 {
+    float: left;
+    background-color: rgb(48, 65, 86);
+    height: inherit;
+    text-align: left;
+    border-right: 1px solid #1c242b;
+}
+
+.roadui_header_logo2 {
+    float: left;
+    background-color: var(--el-color-primary-dark-2);
+    height: inherit;
+    text-align: left;
+    border-right: 1px solid var(--el-color-primary-dark-2);
+}
+
+.roadui_header_logo_title1 {
+    margin-left: 8px;
+    font-family: Broadway;
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.roadui_header_banner1 {
+    background-color: #fff;
+}
+
+.roadui_header_ico1 {
+    display: inline-block;
+}
+
+.roadui_header_ico1 i {
+    color: var(--el-text-color-primary);
+    font-size: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    padding-left: 16px;
+}
+
+.roadui_header_ico1 i:hover {
+    color: var(--el-color-primary);
+}
+
+.roadui_header_shortuct1 {
+    display: inline-block;
+    margin-left: 12px;
+    height: inherit;
+}
+
+.roadui_header_shortuct1>span {
+    padding: 0 14px;
+    display: inline-block;
+    height: inherit;
+}
+
+.roadui_header_shortuct1>span:hover,
+.roadui_header_shortuct3 {
+    color: var(--el-color-primary);
+    cursor: pointer;
+}
+
+.roadui_header_shortuct1>span>svg {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.roadui_header_shortuct1>span>label {
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.roadui_header_shortuctmore1 {
+    color: var(--el-text-color-primary);
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.roadui_header_shortuctmore1>div>span>i {
+    vertical-align: -2px;
+}
+
+.roadui_header_right_header1 {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.roadui_header_right_header1 i {
+    font-size: 32px;
+    color: var(--el-text-color-primary);
+    vertical-align: middle;
+}
+
+.roadui_header_right_header1 label {
+    margin-left: 8px;
+    color: var(--el-text-color-primary);
+    vertical-align: middle;
+}
+
+.roadui_header_right_logout1 {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 12px;
+    color: var(--el-text-color-primary);
+    cursor: pointer;
+    margin-left: 10px;
+    height: inherit;
+}
+
+.roadui_header_right_logout1:hover {
+    color: var(--el-color-primary);
+}
+
+.roadui_header_right_logout1 i {
+    vertical-align: middle;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.roadui_header_right_logout1 label {
+    vertical-align: middle;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/*2023-2-16新增，首页左右布局相关样式*/
+.roadui_hometype1_title {
+    height: 30px;
+    padding: 6px 0 0 20px;
+    font-family: Broadway;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--el-text-color-primary);
+    font-weight: bold;
+}
+
+.roadui_hometype1_title1 {
+    height: 30px;
+    padding: 6px 0 0 20px;
+    font-family: Broadway;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--el-bg-color);
+    font-weight: bold;
+}
+
+.roadui_hometype1_aside {
+    overflow: hidden;
+    background-color: var(--el-color-primary-dark-2);
+    text-align: center;
+    color: var(--el-bg-color-page);
+    height: inherit;
+}
+
+.roadui_hometype1_shortuctico {
+    width: 24px;
+    height: 24px;
+}
+
+.roadui_hometype1_shortuct {
+    margin-top: 11px;
+    cursor: pointer;
+    padding: 5px 0;
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_hometype1_shortuct1 {
+    margin-top: 11px;
+    cursor: pointer;
+    padding: 5px 0;
+    border-radius: var(--el-border-radius-base);
+    background-color: var(--el-color-primary);
+}
+
+.roadui_hometype1_shortuct:hover {
+    background-color: var(--el-color-primary);
+}
+
+.roadui_hometype1_footerico {
+    font-size: 22px;
+    margin-top: 6px;
+    cursor: pointer;
+    color: var(--el-bg-color-page);
+}
+
+.roadui_hometype1_footerico:hover {
+    color: var(--el-color-primary-light-5);
+}
+
+.roadui_hometab_contextmenuitem {
+    height: 26px;
+    padding: 1px 5px;
+    margin: 2px 0;
+    border: 1px solid var(--el-mask-color-extra-light);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_hometab_contextmenuitem:hover {
+    cursor: pointer;
+    border: 1px solid var(--el-color-primary-light-7);
+    background-color: var(--el-color-primary-light-9);
+}
+
+.roadui_hometab_contextmenuitem>i {
+    font-size: 16px;
+    vertical-align: -5px;
+    margin-right: 5px;
+}
+
+.roadui_hometab_contextmenuitem>span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*2023-2-16新增完*/
+
+/*头像图片*/
+.roadui_header_right_header i {
+    font-size: 32px;
+    color: var(--el-fill-color-blank);
+    vertical-align: middle;
+}
+
+.roadui_header_right_header label {
+    margin-left: 8px;
+    color: var(--el-fill-color-blank);
+    vertical-align: middle;
+}
+
+.roadui_header_right_logout {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 12px;
+    color: var(--el-fill-color-blank);
+    cursor: pointer;
+    margin-left: 10px;
+    height: inherit;
+}
+
+.roadui_header_right_logout:hover {
+    background-color: var(--el-color-primary-dark-2);
+    cursor: pointer;
+}
+
+.roadui_header_right_logout i {
+    vertical-align: middle;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.roadui_header_right_logout label {
+    vertical-align: middle;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/*调整首页tab下方margin*/
+.roadui_indextab {
+    margin: inherit;
+}
+
+.roadui_indextab .el-tabs__header {
+    margin: 0 0 1px 0;
+}
+
+/*个人设置*/
+.roadui_header_set {
+    padding: 20px 0 25px 25px;
+    color: var(--el-text-color-regular)
+}
+
+.roadui_header_set>div>div>i {
+    margin-right: 6px;
+    font-size: 18px;
+    vertical-align: -4px;
+}
+
+.roadui_header_setdiv {
+    margin-top: 10px;
+}
+
+.roadui_header_setcolor {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 4px;
+    border-radius: var(--el-border-radius-base);
+    text-align: center;
+}
+
+.roadui_header_setcolor svg {
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+/*页面主要区域*/
+.roadui_page {
+    height: inherit;
+    overflow: auto;
+}
+
+/*标签图标*/
+.roadui_main_tabico {
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    margin-right: 5px;
+}
+
+.roadui_main_tabsvg {
+    font-size: 16px;
+    vertical-align: -3px;
+    margin-right: 5px;
+}
+
+/*登录*/
+.login_div {
+    height: 100%;
+    background-color: #fafafa;
+    background-image: url(../roadui-assets/loginbg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.login_titlediv {
+    text-align: center;
+    padding-top: 10%;
+}
+
+.login_title {
+    font-family: Broadway;
+    font-size: 36px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: var(--el-color-primary);
+    text-shadow: var(--el-box-shadow-light);
+}
+
+.login_title1 {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.login_body {
+    width: 280px;
+    margin: 0 auto 40px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--el-border-radius-base);
+    padding: 30px 30px 20px 30px;
+    box-shadow: var(--el-box-shadow-light);
+}
+
+.login_footer {
+    text-align: center;
+    color: #666;
+}
+
+/*加载页面*/
+.roadui_loading {
+    margin: 22% auto 0 auto;
+    /*border: 1px solid var(--el-color-primary-light-7); border-radius: var(--el-border-radius-base); width: 120px; height: 45px; line-height: 45px; text-align: center; background-color: var(--el-color-primary-light-9); color: var(--el-text-color-regular); box-shadow: var(--el-box-shadow-light);*/
+}
+
+/*.roadui_loading i { font-size: 20px; margin-bottom: 12px; color: #999; vertical-align: -5px; margin-right: 6px; color: var(--el-color-primary-dark-2); }*/
+
+/*树组件*/
+.roadui_treenode {}
+
+.roadui_treenode i {
+    margin-right: 5px;
+    font-size: 16px;
+    vertical-align: -3px;
+}
+
+.roadui_treenode>svg {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+}
+
+/*分页*/
+/*分布居中显示*/
+.roadui_pagerdiv div {
+    display: inline-flex;
+}
+
+/*去掉分页按钮黑边框*/
+.el-pager li {
+    outline: none;
+}
+
+.roadui_pagerdiv {
+    margin: 20px auto 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+/*拖拽排序*/
+.roadui_draggable_chosen {
+    padding: 10px 20px;
+    border: 1px solid var(--el-border-color-light);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_draggable_item {
+    height: 32px;
+    line-height: 32px;
+    padding-left: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--el-border-color-light);
+    background-color: var(--el-color-info-light-9);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_draggable_item:hover,
+.roadui_draggable_itemhover {
+    border: 1px solid var(--el-color-primary-light-5);
+    background-color: var(--el-color-primary-light-7);
+}
+
+.roadui_draggable_item svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+}
+
+/*详情表格*/
+.roadui_infotable {
+    border: none;
+    width: 100%;
+    border-collapse: separate;
+    background-color: var(--el-border-color-lighter);
+}
+
+.roadui_infotable>tr>th {
+    font-family: inherit;
+    font-weight: normal;
+    padding: 11px 12px;
+    background-color: var(--el-fill-color-light);
+}
+
+.roadui_infotable>tr>td {
+    font-family: inherit;
+    padding: 11px 0 11px 12px;
+    text-align: left;
+    white-space: pre-line;
+    word-break: break-all;
+    background-color: #fff;
+}
+
+/*表单表格*/
+.roadui_fromtable,
+.roadui_formtable {
+    border: none;
+    width: 100%;
+}
+
+.roadui_fromtable tr th,
+.roadui_formtable tr th {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 12px 0;
+    text-align: left;
+}
+
+.roadui_fromtable tr td,
+.roadui_formtable tr td {
+    font-size: 14px;
+    padding: 12px 0 12px 12px;
+}
+
+/*打印*/
+@media print {
+    .roadui_noprint {
+        display: none;
+    }
+}
+
+.roadui_printtable {
+    border: 1px solid #000;
+    color: #000;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.roadui_printtable tr th,
+.roadui_printtable thead tr th {
+    font-family: inherit;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: normal;
+    padding: 11px 12px;
+    background-color: #fff;
+}
+
+.roadui_printtable tr td,
+.roadui_printtable tbody tr td {
+    font-family: inherit;
+    border: 1px solid #000;
+    color: #000;
+    padding: 11px 0 11px 12px;
+    text-align: left;
+    white-space: pre-line;
+    word-break: break-all;
+    background-color: #fff;
+}
+
+/*图标库*/
+.roadui_lconlist {
+    margin-bottom: 20px;
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    cursor: pointer;
+    border-radius: var(--el-border-radius-base);
+    text-align: center;
+    border: 1px solid var(--el-border-color-light);
+    color: var(--el-text-color-regular);
+}
+
+.roadui_lconlist:hover {
+    border: 1px solid var(--el-color-primary);
+    color: var(--el-color-primary);
+}
+
+.roadui_lconlist>svg {
+    width: 38px;
+    height: 38px;
+    vertical-align: middle;
+}
+
+.roadui_lconlist:last-child {
+    margin-bottom: 0;
+}
+
+.roadui_icontextarea {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+/*图标选择控件*/
+.roadui_selecticodiv {
+    max-width: 500px;
+    padding: 20px 0 0 20px;
+}
+
+.roadui_selectico {
+    display: inline-block;
+    color: #333;
+    width: 32px;
+    height: 32px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid var(--el-fill-color-blank);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_selectico:hover {
+    border: 1px solid var(--el-color-primary);
+    color: var(--el-color-primary);
+    cursor: pointer;
+}
+
+.roadui_selectico svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+/*组织架构选择*/
+.roadui_selectorg {
+    padding: 0 12px 12px 12px;
+    min-width: 300px;
+    font-size: 14px;
+    height: 340px;
+}
+
+.roadui_selectorg .el-select-dropdown__wrap {
+    max-height: 100%;
+}
+
+.roadui_selectorg .el-tabs__header {
+    margin: 0 0 8px 0;
+}
+
+.roadui_selectorg_searchinput {
+    width: 100px;
+    vertical-align: middle;
+    margin-right: 12px
+}
+
+.roadui_selectorg .el-scrollbar {}
+
+/*数据字典选择*/
+.roadui_selectdict {
+    padding: 0 12px 12px 12px;
+    min-width: 300px;
+    font-size: 14px;
+    height: 310px;
+}
+
+.roadui_selectdict .el-select-dropdown__wrap {
+    max-height: 100%;
+}
+
+.el-tree-node__content .el-checkbox {
+    margin-right: 8px;
+}
+
+/*附件管理*/
+.roadui_selectfile {
+    padding: 5px 0 0 10px;
+    font-size: 14px;
+    min-width: 260px;
+    height: 286px;
+    outline: none;
+}
+
+.roadui_selectfile .el-select-dropdown__wrap {
+    max-height: 100%;
+}
+
+.el-upload {
+    display: inherit;
+    float: left;
+}
+
+.roadui_roadui_selectfilelist {
+    width: 100px;
+    height: 90px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--el-bg-color-overlay);
+    text-shadow: var(--el-box-shadow);
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    border-radius: var(--el-border-radius-base);
+    box-shadow: var(--el-box-shadow-light);
+}
+
+.roadui_roadui_selectfilesize {
+    padding: 0 5px;
+    font-size: 12px;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 100%;
+    text-align: center;
+}
+
+.roadui_roadui_selectfilesize div i {
+    vertical-align: -1px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.roadui_roadui_selectfilesize div i:hover {
+    color: var(--el-color-primary);
+}
+
+.roadui_filelist {
+    margin: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.roadui_file_img_span {
+    display: inline-flex;
+    background-size: cover;
+    background-position: center;
+}
+
+.roadui_file_img_span span {
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.roadui_file_img_span span i {
+    color: #fff;
+    font-size: 22px;
+}
+
+.roadui_file_img_span span i:hover {
+    color: var(--el-color-primary);
+}
+
+/*附件显示链接换行*/
+.roadui_filelistnobr {
+    word-break: break-all;
+    word-wrap: break-word;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/*附件显示链接不换行*/
+.roadui_filelistnobr a {
+    margin-right: 8px;
+}
+
+/*签章*/
+.roadui_signdiv {
+    display: inline-flex;
+}
+
+.roadui_signname {
+    display: inline-flex;
+    height: 24px;
+    box-shadow: #fc3939 1px 1px inset;
+    user-select: none;
+    text-align: center;
+    text-shadow: 0 -1px 0 #ff6867;
+    border: 3px solid #ff0101;
+    font-size: 18px;
+    color: #ff0101;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 1px 5px 1px 5px;
+    letter-spacing: 2px;
+    word-break: keep-all;
+    align-items: center;
+}
+
+.roadui_signimg {
+    display: inline-flex;
+    vertical-align: -10px;
+    max-height: 32px;
+    max-width: 100px;
+}
+
+/*选择流程控件*/
+.roadui_selectflowico {
+    display: inline-block;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.roadui_selectflowico svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: -2px;
+    color: var(--el-text-color-secondary);
+}
+
+/*快捷菜单设置*/
+.roadui_setshortuctdiv {
+    height: inherit;
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.roadui_setshortuctdiv table {
+    width: 100%;
+    height: calc(100% - 100px);
+}
+
+.roadui_setshortuctdiv table tbody,
+.roadui_setshortuctdiv table tbody tr,
+.roadui_setshortuctdiv table tbody tr td {
+    height: inherit;
+}
+
+.roadui_setshortuctlist {
+    height: 100%;
+    overflow: auto;
+    padding: 12px 0 12px 12px;
+    border: 1px solid var(--el-border-color-light);
+    border-radius: var(--el-border-radius-base);
+}
+
+/*对firefox有效*/
+@-moz-document url-prefix() {
+    .roadui_setshortuctdiv table {
+        height: 500px;
+    }
+}
+
+.roadui_setshortuctbuttd {
+    width: 100px;
+    text-align: center;
+}
+
+.roadui_setshortuctbuttd div>.el-button {
+    margin: 12px 0;
+}
+
+/*日历设置*/
+.roadui_workdate {}
+
+.roadui_workdatetable {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    border-radius: var(--el-border-radius-base);
+    border: 1px solid var(--el-border-color-light);
+}
+
+.roadui_workdatetable tr td {
+    user-select: none;
+    text-align: center;
+    width: 38px;
+    height: 30px;
+    border-left: 1px solid var(--el-border-color-light);
+    border-top: 1px solid var(--el-border-color-light);
+}
+
+.roadui_workdatetable tr td:first-child {
+    border-left: none 0;
+}
+
+.roadui_workdatetable tr:first-child td {
+    border-top: none 0;
+}
+
+.roadui_workdatework {
+    background-color: var(--el-color-primary-light-9);
+}
+
+/*表单*/
+.roadui_formfont {
+    color: var(--el-text-color-regular);
+}
+
+/*组织架构设置权限*/
+/*设置树表格里面图标大小及位置*/
+.el-table .cell svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+}
+
+/*设置树表格展开箭头图标位置*/
+.el-table__expand-icon i {
+    vertical-align: -3px;
+}
+
+/*工具条菜单*/
+.roadui_toolbar {
+    background-color: var(--el-fill-color-dark);
+    padding: 4px;
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_toolbar>div {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.roadui_toolbar>div span {
+    color: var(--el-color-info-light-3);
+}
+
+.roadui_toolbar>div button {
+    border: none;
+    color: var(--el-text-color-primary);
+    height: 26px;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_toolbar>div button i {
+    font-size: 16px;
+    vertical-align: -3px;
+    margin-right: 6px;
+}
+
+.roadui_toolbar>div button>svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    margin-right: 6px;
+}
+
+.roadui_toolbar>div button:hover {
+    background-color: var(--el-color-primary);
+    color: #fff;
+}
+
+/*发起流程*/
+.roadui_flowstar_title {
+    color: var(--el-text-color-secondary);
+    margin: 14px 0;
+}
+
+.roadui_flowstar_flow {
+    border-radius: var(--el-border-radius-base);
+    width: 150px;
+    height: 58px;
+    box-shadow: var(--el-box-shadow-lighter);
+    user-select: none;
+    cursor: pointer;
+    color: var(--el-text-color-regular);
+    border: 1px solid var(--el-border-color-lighter);
+}
+
+.roadui_flowstar_flow:hover {
+    color: var(--el-color-primary);
+}
+
+.roadui_flowstar_flowico {
+    width: 40px;
+    border-radius: var(--el-border-radius-base) 0 0 var(--el-border-radius-base);
+    height: 43px;
+    padding-top: 15px;
+    text-align: center;
+    float: left;
+    color: #fff;
+}
+
+.roadui_flowstar_flowico svg {
+    width: 24px;
+    height: 24px;
+}
+
+.roadui_flowstar_flowtitle {
+    display: flex;
+    align-items: center;
+    border-radius: 0 var(--el-border-radius-base) var(--el-border-radius-base) 0;
+    height: 58px;
+    background-color: var(--el-fill-color-light);
+}
+
+.roadui_flowstar_flowtitle span {
+    text-align: center;
+    width: 110px;
+    padding: 0 8px;
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/*流程处理*/
+/*表单样式*/
+nbsp {
+    display: none;
+}
+
+.roadui_formruntable {
+    border-collapse: collapse;
+    border: 1px solid var(--el-color-white);
+}
+
+.roadui_formruntable>tbody>tr>td {
+    padding: 0;
+    border: 0 none;
+}
+
+.roadui_formruntable>tbody>tr>th {
+    font-weight: normal;
+    padding: 0;
+    border: 0 none;
+}
+
+.roadui_formruntable>thead>tr>td {
+    padding: 0;
+    border: 0 none;
+}
+
+.roadui_formruntable>tbody>tr>td pre {
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.roadui_formruntable>tfoot>tr>td label {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.roadui_formruntable .el-form-item {
+    margin: 8px 0;
+    /*align-items: center; */
+}
+
+/*表单样式表格有边框*/
+.roadui_formruntable1 {
+    border-collapse: collapse;
+    border: 1px solid var(--el-border-color-light);
+}
+
+.roadui_formruntable1>tbody>tr>td {
+    border: 1px solid var(--el-border-color-light);
+    padding: 0 12px;
+}
+
+.roadui_formruntable1>tbody>tr>th {
+    font-weight: normal;
+    padding: 0 12px;
+    border: 1px solid var(--el-border-color-light);
+}
+
+.roadui_formruntable1>thead>tr>td {
+    border: 1px solid var(--el-border-color-light);
+    padding: 0 12px;
+}
+
+.roadui_formruntable1>tbody>tr>td pre {
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.roadui_formruntable1>tfoot>tr>td label {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.roadui_formruntable1 .el-form-item {
+    margin: 8px 0;
+    /*align-items: center;*/
+}
+
+/*表单设计器子表弹出编辑模式div*/
+.roadui_formdesign_subtablediv {
+    height: 410px;
+    overflow: auto;
+}
+
+/*定义dialog的margin，表单设计器子表设置编辑模式时用*/
+.el-dialog_formdesign_subtable_margin {
+    margin: 15px auto 0 auto;
+}
+
+/*表单字体颜色-表单控件只读时显示的颜色*/
+.roadui_fromreadonly {
+    font-family: inherit;
+    color: var(--el-text-color-regular);
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+/*子表添加删除行按钮*/
+.roadui_fromrunsubtable_button {
+    padding: 5px 8px;
+}
+
+/*查看征求意见回复列表*/
+.roadui_flowsolicitopinions {
+    background-color: var(--el-fill-color-lighter);
+    border-radius: var(--el-border-radius-base);
+    margin-bottom: 25px;
+    border: 1px solid var(--el-border-color-light);
+    padding: 8px 12px;
+}
+
+/*流程步骤说明*/
+.roadui_flowrunstepnote {
+    color: var(--el-text-color-primary);
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+/*查看处理过程时图形方式显示步骤处理过程*/
+.roadui_flowrun_showprocess {
+    position: absolute;
+    width: 740px;
+    max-height: 400px;
+    padding: 8px 10px;
+    border-radius: var(--el-border-radius-base);
+    border: 1px solid var(--el-border-color);
+    background-color: var(--el-fill-color-extra-light);
+    box-shadow: var(--el-box-shadow);
+}
+
+/*自定义颜色的tag*/
+.roadui_colortag {
+    color: #fff;
+    border: none;
+    border-width: 0;
+}
+
+/*显示文档样式*/
+.roadui_showdoc_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.roadui_showdoc_title1 {
+    padding: 18px 0;
+}
+
+.roadui_showdoc_contents {
+    max-height: 450px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
+}
+
+.roadui_showdoc_contents1 {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
+}
+
+.roadui_showdoc_files {
+    padding: 12px 0 0 0;
+    word-break: break-all;
+    line-height: 25px;
+}
+
+/*问卷调查*/
+.roadui_vote_title {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.roadui_vote_titleinfo {
+    text-align: center;
+}
+
+.roadui_vote_subject_title {
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.roadui_vote_subject_option {
+    margin: 5px 0;
+}
+
+.roadui_vote_body {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.roadui_vote_subjectline {
+    border-bottom: 1px dashed var(--el-border-color-lighter);
+    margin-top: 12px;
+    padding-bottom: 5px;
+}
+
+/*查看结果用户输入的内容*/
+.roadui_vote_result_user {
+    margin-top: 12px;
+    background: var(--el-fill-color-lighter);
+    border-radius: var(--el-border-radius-base);
+    padding: 0 8px 8px 8px;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/*查看选项用户*/
+.roadui_vote_result_user1 {
+    display: inline-block;
+    margin: 8px 8px 0 0;
+    border-radius: var(--el-border-radius-base);
+    border: 1px solid var(--el-border-color-lighter);
+    background: #fff;
+    padding: 2px 8px;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/*应用程序设计运行时*/
+/*新行显示按钮*/
+.roadui_program_button {
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+/*首页统计*/
+.roadui_home_count {
+    padding: 0;
+    margin-top: 8px;
+}
+
+.roadui_home_countdiv {
+    min-width: 160px;
+    height: 62px;
+    border-radius: var(--el-border-radius-base);
+    box-shadow: var(--el-box-shadow-lighter);
+}
+
+.roadui_home_countdiv:hover {
+    cursor: pointer;
+}
+
+.roadui_home_counticon {
+    float: left;
+    color: #fff;
+    background-color: var(--el-color-primary);
+    width: 55px;
+    height: 62px;
+    line-height: 62px;
+    text-align: center;
+    border-radius: var(--el-border-radius-base) 0 0 var(--el-border-radius-base);
+}
+
+.roadui_home_counticon>svg {
+    width: 26px;
+    height: 26px;
+    vertical-align: -5px;
+}
+
+.roadui_home_counticon:hover {
+    color: var(--el-color-warning-light-3);
+}
+
+.roadui_home_countamount {
+    padding: 7px 10px 10px 64px;
+}
+
+.roadui_home_countamount_count {
+    font-size: 22px;
+    padding-left: 1px;
+}
+
+/*首页统计左边*/
+.roadui_home_left {
+    float: left;
+    width: 57%;
+}
+
+.roadui_home_leftdiv {
+    border-radius: var(--el-border-radius-base);
+    padding: 0 8px;
+    border: 1px solid var(--el-border-color-extra-light);
+    margin-top: 22px;
+}
+
+.roadui_home_leftdivtitle {
+    padding: 12px 0 8px 0;
+}
+
+.roadui_home_leftdivtitle1 {
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+.roadui_home_leftdivtitle1 i {
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: -3px;
+}
+
+.roadui_home_leftdivtitlemore {
+    float: right;
+    font-weight: normal;
+}
+
+.roadui_home_leftdivitem {
+    clear: both;
+    margin: 0 0 10px 0;
+    padding: 8px;
+    border-radius: var(--el-border-radius-base);
+}
+
+.roadui_home_leftdivitem:hover {
+    cursor: pointer;
+    background-color: var(--el-fill-color);
+}
+
+.roadui_home_left_avatar {
+    border: 2px solid var(--el-border-color);
+    vertical-align: -4px;
+    margin-right: 8px;
+}
+
+.roadui_home_right {
+    float: right;
+    width: 40%;
+}
+
+/*移动端*/
+/*主界面*/
+.roaduim_main {
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+
+.roaduim_main_header {
+    background-color: var(--el-color-primary);
+    height: 60px;
+    padding: 14px 12px 0 12px;
+}
+
+.roaduim_main_header_img {
+    border: 2px solid var(--el-color-primary-light-9);
+}
+
+.roaduim_main_header_name {
+    color: #fff;
+}
+
+/*快捷菜单*/
+.roaduim_main_shortuct {
+    margin-top: 18px;
+}
+
+.roaduim_main_shortuctitem {
+    cursor: pointer;
+    background-color: var(--el-border-color-light);
+    border-radius: var(--el-border-radius-base);
+    text-align: center;
+}
+
+.roaduim_main_shortuctitem>div>svg {
+    width: 28px;
+    height: 28px;
+    color: var(--el-color-primary);
+}
+
+/*待办列表*/
+.roaduim_main_todo {
+    margin-top: 14px;
+}
+
+.roaduim_main_listtitle {
+    color: var(--el-text-color-regular);
+}
+
+.roaduim_main_listtitle i {
+    font-size: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.roaduim_main_todoitem {
+    cursor: pointer;
+    border-radius: var(--el-border-radius-base);
+    border-bottom: 1px dashed var(--el-border-color-light);
+    margin-top: 12px;
+    padding: 10px;
+}
+
+.roaduim_main_todonote {
+    color: var(--el-text-color-placeholder);
+    margin-top: 8px;
+}
+
+.roaduim_main_todonote i {
+    font-size: 16px;
+    vertical-align: -2px;
+    margin-right: 5px;
+}
+
+/*底部导航*/
+.roaduim_footer {
+    border-top: 1px solid var(--el-border-color-light);
+    padding-top: 5px;
+    user-select: none;
+}
+
+.roaduim_footeritem {
+    text-align: center;
+    cursor: pointer;
+    color: var(--el-text-color-secondary);
+}
+
+.roaduim_footeritem>div>svg,
+.roaduim_footeritem_current>div>svg {
+    width: 24px;
+    height: 24px;
+}
+
+.roaduim_footeritem:hover,
+.roaduim_footeritem_current {
+    color: var(--el-color-primary);
+}
+
+/*待办页面*/
+.roaduim_title {
+    background-color: var(--el-color-primary);
+    height: 34px;
+    color: #fff;
+    font-size: 16px;
+    padding: 9px 12px 0 12px;
+    margin-bottom: 18px;
+}
+
+.roaduim_title i {
+    font-size: 22px;
+    vertical-align: -5px;
+    margin-right: 6px;
+}
+
+.roaduim_title span {
+    display: inline-block;
+    vertical-align: 0;
+}
+
+/*移动端发起流程*/
+.roaduim_flowstar_flow {
+    padding: 8px 3px;
+    background-color: var(--el-border-color-light);
+    border-radius: var(--el-border-radius-base);
+}
+
+.roaduim_flowstar_flow_ico {
+    text-align: center;
+}
+
+.roaduim_flowstar_flow_ico svg {
+    width: 28px;
+    height: 28px;
+    color: var(--el-color-primary);
+}
+
+.roaduim_flowstar_flowtitle {
+    font-size: 12px;
+    text-align: center;
+    width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

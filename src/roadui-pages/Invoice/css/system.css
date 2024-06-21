@@ -1,0 +1,35 @@
+.card-header {
+    /* display: flex; */
+    /* justify-content: space-between;
+    align-items: center; */
+}
+
+.cardsetting {
+    /* display: flex; */
+    /* margin-top: 40px; */
+    /* margin-left: -44px; */
+}
+
+.box-card1 {
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.width {
+    width: 295px;
+}
+
+/* :deep(.el-input) {
+    width: 150px;
+} */
+
+:deep(.el-card__header) {
+    padding: 10px 20px;
+}

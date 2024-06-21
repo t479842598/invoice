@@ -1,0 +1,9 @@
+.before::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 20px; /* 根据需要调整高度 */
+    background-color: rgb(7, 115, 132); /* 根据需要调整颜色 */
+    vertical-align: middle;
+    margin-right: 10px;
+}

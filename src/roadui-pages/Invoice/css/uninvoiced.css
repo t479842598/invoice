@@ -1,0 +1,45 @@
+.table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-color: #c0c4cc;
+    border-width: 0.2px;
+    height: 40px;
+    width: 40%;
+}
+
+.flex-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-button{
+    margin-right: 30%;
+}
+.bottom-buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+:deep(.table-container .el-table__inner-wrapper){
+    border-color: #797979;
+}
+
+.inline :deep(.el-input) {
+    width: 210px;
+}
+
+.inline :deep(.tree .el-input) {
+    width: 203px !important;
+}
+
+:deep(.el-date-editor) {
+    width: 190px
+}
+
+.table-bottom{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.detail-container{
+    height: 50px !important;
+}

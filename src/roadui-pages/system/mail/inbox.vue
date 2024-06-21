@@ -1,0 +1,157 @@
+﻿<template>
+    <div class="roadui_page">
+        <div>
+            <el-form :inline="true">
+                <el-form-item label="主题">
+                    <el-input v-model="formData.mailSubject" style="width:200px" clearable />
+                </el-form-item>
+                <el-form-item label="日期">
+                    <el-date-picker v-model="formDataDateRange" style="width:220px;"
+                                    type="daterange"
+                                    value-format="YYYY-MM-DD"
+                                    unlink-panels
+                                    start-placeholder="开始日期"
+                                    end-placeholder="结束日期"
+                                    :shortcuts="utils.dateShortucts" />
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" :disabled="butDisabled" @click="loadTableData(true)">查询</el-button>
+                    <el-button type="danger" :disabled="butDisabled" @click="delTableData(0)">删除</el-button>
+                    <el-button type="danger" :disabled="butDisabled" @click="delTableData(1)">彻底删除</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+        <div>
+            <el-table :data="tableData"
+                      v-loading="loading"
+                      :stripe="pager.tableStripe"
+                      :border="pager.tableBorder"
+                      style="width: 100%"
+                      :highlight-current-row="pager.tableHighlightCurrentRow"
+                      :default-sort="defaultOrder"
+                      @sort-change="sortChange"
+                      @selection-change="handleSelectionChange">
+                <el-table-column type="selection" width="45" />
+                <el-table-column prop="mailSubject" label="主题" sortable="custom" show-overflow-tooltip>
+                    <template #default="scope">
+                        <el-tag v-if="scope.row.isRead===0" effect="dark" type="warning" style="margin-right:8px;border-width:0;vertical-align:middle;">未读</el-tag>
+                        <el-tag effect="dark" style="margin-right:8px;border-width:0;vertical-align:middle;" v-if="scope.row.mailType>1" :type="scope.row.mailType===2?'':'success'">{{scope.row.mailType===2?'抄送':'密送'}}</el-tag>
+                        <a class="roaduia" href="javascript:;" @click="view(scope.row)" :style="utils.length(scope.row.subjectColor)>0?'color:'+scope.row.subjectColor:''">{{scope.row.mailSubject}}</a>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="senderId" label="发件人" width="350" sortable="custom">
+                    <template #default="scope">
+                        {{scope.row.sender}}<span class="roadui_note"> - {{scope.row.senderOrg}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="receiveTime" label="日期" width="180" sortable="custom" />
+            </el-table>
+        </div>
+        <div class="roadui_pagerdiv">
+            <el-pagination v-model:currentPage="pager.number"
+                           v-model:page-size="pager.size"
+                           :page-sizes="pager.sizes"
+                           :background="pager.background"
+                           :layout="pager.layout"
+                           :total="pager.total"
+                           :disabled="butDisabled"
+                           @size-change="handleSizeChange"
+                           @current-change="handleCurrentChange" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+    import { ref, onMounted, inject, computed } from 'vue';
+    const ajax = inject('ajax');
+    const utils = inject('utils');
+    const qs = inject('qs');
+    const index_openmenu = inject('index_openmenu');
+    const formData = ref({});
+    const formDataDateRange = ref([]);//选择的日期范围
+    const butDisabled = ref(false);
+
+    const loading = ref(false);//数据加载状态
+    const tableData = ref([]);
+    let selectRows = [];//保存选择的行
+    const defaultOrder = ref({ prop: 'isread,id', order: 'descending' });
+    const pager = ref(utils.getPager(defaultOrder.value));
+
+    onMounted(() => {
+        loadTableData(false);
+    });
+
+    //选择行
+    const handleSelectionChange = (val) => {
+        selectRows = val;
+    };
+    //每页条数改变
+    const handleSizeChange = (size) => {
+        pager.value.size = size;
+        loadTableData(false);
+    };
+    //页码改变
+    const handleCurrentChange = (number) => {
+        pager.value.number = number;
+        loadTableData(false);
+    };
+    //排序
+    const sortChange = (order) => {
+        pager.value.order = utils.getOrder(order);
+        loadTableData(false);
+    };
+    //加载列表，isQuery 点查询按钮为true，初始加载为false，为了区分点查询按钮时要将页number置为1。
+    const loadTableData = (isQuery) => {
+        if (isQuery) {
+            pager.value.number = 1;
+        }
+        loading.value = true;
+        butDisabled.value = true;
+        formData.value.size = pager.value.size;
+        formData.value.number = pager.value.number;
+        formData.value.order = pager.value.order;
+        formData.value['date1'] = utils.length(formDataDateRange.value) > 0 ? formDataDateRange.value[0] : '';
+        formData.value['date2'] = utils.length(formDataDateRange.value) > 1 ? formDataDateRange.value[1] : '';
+        ajax.post('/Mail/GetInList', qs.stringify(formData.value)).then((res) => {
+            tableData.value = res.data.rows;
+            pager.value.total = res.data.total;
+            butDisabled.value = false;
+            loading.value = false;
+        }).catch(() => { butDisabled.value = false; });
+    };
+
+    //删除选择行 type 0：删除 1：物理删除
+    const delTableData = (type) => {
+        if (selectRows.length === 0) {
+            utils.msg('请选择要删除的邮件！', 'error');
+            return;
+        }
+        utils.confirm('您确定要' + (type == 1 ? '彻底' : '') + '删除所选邮件吗？', () => {
+            butDisabled.value = true;
+            ajax.post('/Mail/DeleteIn', qs.stringify({ ids: utils.getArrayValues(selectRows, 'id').join(','), type: type })).then((res) => {
+                let msg = res.msg;
+                if (utils.length(msg) === 0) {
+                    msg = res.success ? "删除成功！" : "删除失败！";
+                }
+                utils.msg(msg, res.success);
+                butDisabled.value = false;
+                if (res.success) {
+                    selectRows = [];
+                    loadTableData(false);
+                }
+            }).catch(() => { butDisabled.value = false; });
+        });
+    };
+
+    //查看邮件
+    const view = (row) => {
+        const item = {
+            title: row.mailSubject,
+            id: 'mail_view_' + row.id,
+            url: '/system/mail/view?id=' + row.id + '&source=inbox',
+            ico: 'Message',
+            openMode: 0,
+        };
+        index_openmenu(item);
+    };
+</script>

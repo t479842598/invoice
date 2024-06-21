@@ -1,0 +1,145 @@
+.vertical-text {
+    writing-mode: vertical-rl;
+    vertical-align: middle;
+    text-align: center;
+    max-width: 30px !important;
+}
+
+:deep(.el-table__border-left-patch) {
+    background-color: #99938f;
+    width: 0.5px;
+}
+
+:deep(.el-table--border::after) {
+    background-color: #99938f;
+    /* width: 0.5px; */
+}
+
+:deep(.el-table__inner-wrapper::before) {
+    background-color: #99938f;
+    height: 0.5px;
+}
+
+:deep(.el-table) {
+    border-color: #99938f !important;
+}
+
+:deep(.el-form-item__label) {
+    color: #AD7353
+}
+
+:deep(.remarkTable) td {
+    padding: 0 !important;
+}
+
+:deep(.remarkTable .el-textarea__inner) {
+    height: 115px !important;
+    border-radius: 0 !important;
+    width: 100%;
+}
+
+:deep(.eltable .el-scrollbar__wrap, .el-scrollbar__wrap--hidden-default) {
+    min-height: 280px !important;
+    font-size: 12px;
+    color: #585859;
+    font-weight: 600;
+}
+
+:deep(.eltable .cell) {
+    white-space: pre-line;
+}
+
+:deep(.maintable .el-form-item .el-form-item__label) {
+    display: block !important;
+    text-align: justify !important;
+    /* text-align-last: justify !important; */
+}
+
+:deep(.maintable .selectBtn) {
+    border-radius: 0 !important;
+}
+
+:deep(.maintable .el-form-item__content .el-input .el-input__wrapper) {
+    border-radius: 0 !important;
+}
+
+:deep(.remarkTable .el-form-item__content .el-input .el-input__wrapper) {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+:deep(.remarkTable .el-form-item__content .el-input, .el-input__inner) {
+    border: 0 !important;
+    max-width: 60% !important;
+}
+
+:deep(.remarkTable .el-form-item) {
+    width: 100% !important;
+}
+
+:deep(.remarkTable .el-form-item:first-child) {
+    margin: 0 !important;
+}
+
+:deep(.el-form-item) {
+    margin-bottom: 5px !important;
+}
+
+:deep(.maintable .type div) {
+    margin: 0 !important;
+}
+
+:deep(.maintable .show) {
+    padding: 0 !important;
+    overflow: hidden;
+    margin-left: -5px;
+}
+
+:deep(.maintable .show .el-form-item__content) {
+    margin: 0 !important;
+}
+
+:deep(.maintable .show .el-checkbox__label) {
+    padding-left: 3px !important;
+    font-size: 12px !important;
+}
+
+
+
+:deep(.amountshow span) {
+    margin-left: 12px;
+}
+
+:deep(.el-input.is-disabled .el-input__inner) {
+    background-color: #ffffff !important;
+    color: #303133 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+:deep(.el-input.is-disabled .el-input__wrapper) {
+    background-color: #ffffff !important;
+    color: #303133 !important;
+}
+
+.black {
+    color: #000 !important;
+}
+
+
+:deep(.colschange .el-form-item__content .black) {
+    overflow: hidden;
+    word-wrap: break-word !important;
+    word-break: normal !important;
+}
+
+:deep(.el-table__inner-wrapper) {
+    border-left: 1.3px solid #AD7353;
+    border-right: 1.3px solid #AD7353;
+    border-bottom: 1.3px solid #AD7353;
+}
+
+:deep(.el-scrollbar .is-horizontal .el-scrollbar__thumb) {
+    /*width: 0;宽度为0隐藏*/
+    display: none !important;
+}
