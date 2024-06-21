@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF合并</title>
+  <script src="./roadui-assets/pdf-lib.min.js"></script>
+  <link rel="stylesheet" href="./roadui-assets/Print-pdf.css" />
+</head>
+
+<body>
+  <!-- <header>
+
+  </header> -->
+  <div style="min-height: 40vh;width: 50vw;margin: 200px auto;">
+    <div style="text-align: center;">
+      <input class="upload" name="fileInput" type="file" id="fileInput" multiple />
+      <label class="btn btn-primary importBtn" for="fileInput"> 添加发票文件:多个pdf合并 </label>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;margin: 10px 0;">
+      <table width="500" border="1">
+        <thead>
+          <tr>
+            <th>文件名</th>
+            <th>大小</th>
+          </tr>
+        </thead>
+        <tbody id="fileList">
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align: center;">
+      <button class="btn btn-primary" onclick="previewMergePDF()">预览合并的PDF</button>
+      <button class="btn btn-primary" onclick="downloadMergePDF()">下载合并的PDF</button>
+    </div>
+  </div>
+  <script>
+    // 预览合并的PDF
+    async function previewMergePDF() {
+      // 获取文件输入元素
+      const fileInput = document.getElementById("fileInput");
+      // 获取用户选择的文件
+      const files = fileInput.files;
+      // 如果用户选择的文件少于2个，显示警告并退出函数
+      if (files.length < 2) {
+        alert("请至少选择两个PDF文件进行合并！");
+        return;
+      }
+      // 创建一个新的PDF文档
+      const mergedPdf = await PDFLib.PDFDocument.create();
+      // 遍历用户选择的每个文件
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        // 使用FileReader读取文件内容
+        const fileContents = await new Promise((resolve, reject) => {
+          reader.onload = function (event) {
+            // 当文件读取成功时，解析文件内容
+            resolve(event.target.result);
+          };
+          reader.onerror = function (event) {
+            // 当文件读取失败时，抛出错误
+            reject(new Error("文件读取错误。"));
+          };
+          // 以ArrayBuffer的形式读取文件
+          reader.readAsArrayBuffer(file);
+        });
+        // 加载PDF文件
+        const pdf = await PDFLib.PDFDocument.load(fileContents);
+        // 复制PDF文件的所有页面
+        const copiedPages = await mergedPdf.copyPages(
+          pdf,
+          pdf.getPageIndices()
+        );
+        // 将复制的页面添加到新的PDF文档中
+        copiedPages.forEach((page) => {
+          mergedPdf.addPage(page);
+        });
+      }
+      // 保存合并后的PDF文档
+      const mergedPdfBytes = await mergedPdf.save();
+      // 创建一个Blob对象，用于表示PDF文档的数据
+      const mergedPdfBlob = new Blob([mergedPdfBytes], {
+        type: "application/pdf",
+      });
+      // 创建一个URL，用于表示Blob对象
+      const fileURL = URL.createObjectURL(mergedPdfBlob);
+      // 使用浏览器的窗口打开URL，预览PDF文档
+      window.open(fileURL);
+    }
+    async function downloadMergePDF() {
+      // 获取文件输入元素
+      const fileInput = document.getElementById("fileInput");
+      // 获取用户选择的文件
+      const files = fileInput.files;
+      // 如果用户选择的文件少于2个，显示警告并退出函数
+      if (files.length < 2) {
+        alert("请至少选择两个PDF文件进行合并！");
+        return;
+      }
+      // 创建一个新的PDF文档
+      const mergedPdf = await PDFLib.PDFDocument.create();
+      // 遍历用户选择的每个文件
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        // 使用FileReader读取文件内容
+        const fileContents = await new Promise((resolve, reject) => {
+          reader.onload = function (event) {
+            // 当文件读取成功时，解析文件内容
+            resolve(event.target.result);
+          };
+          reader.onerror = function (event) {
+            // 当文件读取失败时，抛出错误
+            reject(new Error("文件读取错误。"));
+          };
+          // 以ArrayBuffer的形式读取文件
+          reader.readAsArrayBuffer(file);
+        });
+        // 加载PDF文件
+        const pdf = await PDFLib.PDFDocument.load(fileContents);
+        // 复制PDF文件的所有页面
+        const copiedPages = await mergedPdf.copyPages(
+          pdf,
+          pdf.getPageIndices()
+        );
+        // 将复制的页面添加到新的PDF文档中
+        copiedPages.forEach((page) => {
+          mergedPdf.addPage(page);
+        });
+      }
+      // 保存合并后的PDF文档为Base64格式
+      const mergedPdfFile = await mergedPdf.saveAsBase64();
+      // 创建一个下载链接
+      const downloadLink = document.createElement("a");
+      // 设置下载链接的href属性，包含合并后的PDF文档的数据
+      downloadLink.href = "data:application/pdf;base64," + mergedPdfFile;
+      // 设置下载的文件名
+      downloadLink.download = "merged.pdf";
+      // 触发下载链接的click事件，开始下载文件
+      downloadLink.click();
+    }
+
+    let fileInput = document.getElementById('fileInput');
+
+    fileInput.addEventListener('change', function () {
+      let files = this.files;
+      let tableBody = document.getElementById('fileList');
+      tableBody.innerHTML = ''; // 清空表格
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        let size = getfilesize(file.size);
+        let row = `<tr><td>${file.name}</td><td>${size}</td></tr>`;
+        tableBody.innerHTML += row;
+      }
+    });
+
+    function getfilesize(size) {//把字节转换成正常文件大小
+      if (!size) return "";
+      var num = 1024.00; //byte
+      if (size < num)
+        return size + "B";
+      if (size < Math.pow(num, 2))
+        return (size / num).toFixed(2) + "KB"; //kb
+      if (size < Math.pow(num, 3))
+        return (size / Math.pow(num, 2)).toFixed(2) + "MB"; //M
+      if (size < Math.pow(num, 4))
+        return (size / Math.pow(num, 3)).toFixed(2) + "G"; //G
+      return (size / Math.pow(num, 4)).toFixed(2) + "T"; //T
+    }
+  </script>
+</body>
+
+</html>

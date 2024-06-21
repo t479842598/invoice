@@ -1,0 +1,1 @@
+import{ai as e,c as o,W as a,aX as n,o as s}from"./_@vue-5ba92de9.js";const _={__name:"empty",setup(c){return e("ajax"),e("utils"),e("qs"),(p,r)=>{const t=n("el-empty");return s(),o("div",null,[a(t,{description:"Empty"})])}}};export{_ as default};

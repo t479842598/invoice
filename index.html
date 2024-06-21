@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html style="height:100%">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>数电发票接口系统</title>
+  <script type="module" crossorigin src="./assets/index-823f4b27.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/_@vue-5ba92de9.js">
+  <link rel="modulepreload" crossorigin href="./assets/__vendor-5e6ac033.js">
+  <link rel="modulepreload" crossorigin href="./assets/_@element-plus-ad4c9002.js">
+  <link rel="modulepreload" crossorigin href="./assets/_crypto-js-0812dcff.js">
+  <link rel="modulepreload" crossorigin href="./assets/_@popperjs-c75af06c.js">
+  <link rel="modulepreload" crossorigin href="./assets/_element-plus-8c7ce171.js">
+  <link rel="modulepreload" crossorigin href="./assets/_pdfjs-dist-c04561eb.js">
+  <link rel="modulepreload" crossorigin href="./assets/_@microsoft-43c4e133.js">
+  <link rel="modulepreload" crossorigin href="./assets/_vue-codemirror-50da885a.js">
+  <link rel="stylesheet" href="./assets/__vendor-693c365c.css">
+  <link rel="stylesheet" href="./assets/_element-plus-7d03f811.css">
+  <link rel="stylesheet" href="./assets/index-2ccff9e2.css">
+</head>
+
+<body style="margin:0;height:100%;">
+    <div id="app" style="height:inherit"></div>
+    
+    <script type="text/javascript" src="roadui-assets/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="roadui-assets/pdf.worker.min.js"></script>
+    <script type="text/javascript" src="roadui-assets/uni.webview.1.5.5.js"></script>
+    <!-- <script type="text/javascript" src="roadui-assets/vue-request.min.js"></script> -->
+    <script type="text/javascript">
+        // VueRequest.setGlobalOptions({
+        //     manual: true,
+        //     // ...
+        // });
+        //如果参数中带了title=参数，则设置文档title。
+        function getQuery(name, search) {
+            if (!search) { search = document.location.search; }
+            const pattern = new RegExp('[?&]' + name + '\\=([^&]+)', 'g');
+            const matcher = pattern.exec(search);
+            let items = '';
+            if (null != matcher) {
+                try {
+                    items = decodeURIComponent(decodeURIComponent(matcher[1]));
+                } catch (e) {
+                    try { items = decodeURIComponent(matcher[1]); } catch (e) { items = matcher[1]; }
+                }
+            }
+            return !items ? '' : items.trim();
+        }
+        var title = getQuery('title');
+        if (title.length === 0) {
+            title = getQuery('title', getQuery('loadurl'));
+        }
+        if (title && title.length > 0) { document.title = title; }
+
+        //获取指定名称的cookie的值
+        function getBrowseCookie(objname) {
+            var arrstr = document.cookie.split("; ");
+            for (var i = 0; i < arrstr.length; i++) {
+                var temp = arrstr[i].split("=");
+                if (temp[0] == objname) {
+                    return temp[1];
+                }
+            }
+        }
+        //得到roadflow登录系统token
+        function getRoadFlowLoginToken() {
+            return getBrowseCookie('nroadflow-token');
+        }
+    </script>
+    <style type="text/css">
+        .el-header {
+            --el-header-padding: 0;
+            --el-header-height: 50px;
+            padding: 0;
+            height: 50px;
+        }
+
+        /*隐藏菜单右边框及设置菜单项高度*/
+        .el-menu {
+            border-right: 0;
+            --el-menu-item-height: 47px;
+        }
+
+        .el-sub-menu .el-menu-item {
+            height: 45px;
+            line-height: 45px;
+        }
+
+        /*调整菜单名称过长导致菜单图标不显示*/
+        .el-menu-item {
+            display: flow-root;
+        }
+
+        /*调整标签关闭图标位置*/
+        .is-icon-close {
+            vertical-align: -2px;
+        }
+
+        /*调整主要区域pdding*/
+        .el-main {
+            --el-main-padding: 5px 14px 0 16px;
+        }
+
+        /*调整tab左右移动图标位置*/
+        .el-tabs__nav-prev i {
+            vertical-align: 0;
+            font-size: 14px
+        }
+
+        /*调整dialog边距*/
+        .el-dialog {
+            border-radius: var(--el-border-radius-base)
+        }
+
+        .el-dialog>.el-dialog__body {
+            padding: calc(var(--el-dialog-padding-primary) - 5px) var(--el-dialog-padding-primary) calc(var(--el-dialog-padding-primary) - 10px) var(--el-dialog-padding-primary)
+        }
+
+        .el-dialog__padding {
+            /*调整dialog上边距为0*/
+        }
+
+        .el-dialog__padding .el-dialog__body {
+            padding: 0 var(--el-dialog-padding-primary) var(--el-dialog-padding-primary) var(--el-dialog-padding-primary);
+        }
+
+        .el-dialog__padding el-dialog__footer {
+            padding-top: 0;
+        }
+
+        .el-dialog__padding1 {
+            padding: 0 calc(var(--el-dialog-padding-primary) - 10px) var(--el-dialog-padding-primary) calc(var(--el-dialog-padding-primary) - 10px);
+        }
+
+        .el-dialog__filepadding {
+            /*调整查看文件dialog边距*/
+        }
+
+        .el-dialog__filepadding .el-dialog__body {
+            padding: 6px 12px 12px 12px;
+        }
+
+        .el-dialog__filepadding el-dialog__footer {
+            padding-top: 0;
+        }
+
+        /*调整树节点高度*/
+        .el-tree-node>.el-tree-node__content {
+            height: 30px;
+        }
+
+        /*调整radio间距*/
+        .el-radio {
+            margin-right: 16px;
+        }
+
+        /*调整checkbox间距*/
+        .el-checkbox {
+            margin-right: 16px;
+        }
+
+        /*设置tab内容div高度*/
+        .el-tabs__content {
+            height: inherit
+        }
+
+        /*调整下拉选择多选时标签字体大小*/
+        .el-select__tags-text {
+            font-size: 14px;
+        }
+
+        /*调整活动菜单背景色*/
+        .el-menu-item.is-active {
+            background-color: var(--el-menu-hover-bg-color);
+        }
+
+        /*调整messagebox z-index*/
+        .el-overlay {
+            position: fixed;
+        }
+
+        .el-overlay-message-box {
+            z-index: 999999;
+        }
+
+        /*调整选择分组标题字体大小*/
+        .el-select-group__title {
+            font-size: 14px;
+        }
+
+        /*调整小按钮下的图标大小*/
+        .el-button--small i {
+            font-size: 16px;
+            margin-top: -1px;
+        }
+
+        /*进入和离开动画可以使用不同持续时间和速度曲线。*/
+        .slide-fade-enter-active {
+            transition: all 0.3s ease-out;
+        }
+
+        .slide-fade-leave-active {
+            transition: all 0s cubic-bezier(1, 0.5, 0.8, 1);
+        }
+
+        .slide-fade-enter-from,
+        .slide-fade-leave-to {
+            transform: translateX(20px);
+            opacity: 0;
+        }
+
+        /*限制弹出消息框最大宽度，移动端会超宽*/
+        .el-message-box {
+            width: 90%;
+        }
+
+        /*调整数字输入框没有上边框问题*/
+        /*@-moz-document url-prefix() {*/
+        .el-input-number {
+            line-height: 28px;
+        }
+
+        /*}*/
+        /*滚动条*/
+        /*取消滚动条右边间隔，默认是2px*/
+        .el-scrollbar__bar {
+            right: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        /*定义滚动条样式*/
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: #dedfe1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #c8c9cc;
+        }
+
+        /*定义滑块样式*/
+        ::-webkit-scrollbar-track {
+            border-radius: 4px;
+        }
+
+        /*菜单滚动条*/
+        .el-menu-drak::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            background-color: #28333e;
+        }
+
+        /*菜单滚动条样式（高宽及背景）*/
+        .el-menu-drak::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+            background-color: #414952;
+        }
+
+        .el-menu-drak::-webkit-scrollbar-thumb:hover {
+            background-color: #4f5863;
+        }
+
+        /*菜单块样式*/
+        .el-menu-drak::-webkit-scrollbar-track {
+            border-radius: 6px;
+        }
+
+        /*取消下拉弹出层右键的黑边框，低版本浏览器会出现*/
+        .el-popper {
+            outline: none;
+        }
+
+        /*评分对齐*/
+        .el-rate--large {
+            height: 32px;
+        }
+
+        /*去掉颜色丢黑边*/
+        .el-color-picker {
+            outline: none;
+        }
+
+        /*去掉附件上传列表项黑边*/
+        .el-upload-list__item {
+            outline: none;
+        }
+
+        /*去除低版本浏览器下拉选择框会有黑边*/
+        .el-input__wrapper,
+        .el-popper,
+        .el-select__popper,
+        .el-select__tags,
+        .el-color-picker,
+        .el-month-table td,
+        .el-year-table td,
+        .el-table__body tbody,
+        .el-date-picker__header-label,
+        .el-button.is-text:not(.is-disabled):focus-visible {
+            outline: none;
+        }
+
+        /*codemirror*/
+        .cm-scroller {
+            outline: none;
+            width: 100%;
+            border-radius: var(--el-border-radius-base);
+        }
+
+        .ͼ1.cm-editor {
+            border: 1px solid var(--el-border-color-light);
+            border-radius: var(--el-border-radius-base);
+        }
+
+        .ͼ1.cm-editor.cm-focused {
+            outline: none;
+            border: 1px solid var(--el-color-primary);
+        }
+
+        .cm-content {
+            font-family: sans-serif;
+        }
+
+        .cm-content .cm-line {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /*解决折叠菜单时图标不显示问题*/
+        .el-sub-menu__title {
+            display: inherit;
+        }
+
+        /*调整单元格间隔，2.2.29版本取消了间隔*/
+        .el-table .cell {
+            padding: 0 12px;
+        }
+
+        /*调整首页tab*/
+        .roadui_indextab .el-tabs__header {
+            margin: 0;
+        }
+
+        .el-tabs--card>.el-tabs__header .el-tabs__nav {
+            border-radius: 0;
+        }
+
+        .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+            border-bottom-color: var(--el-fill-color);
+            background-color: var(--el-fill-color);
+        }
+
+        /*.el-tabs--card > .el-tabs__header .el-tabs__item:first-child { margin-left: 0px; }
+        .el-tabs--card > .el-tabs__header .el-tabs__item:first-child.is-active { border-left: 1px solid var(--el-border-color-light); }*/
+        .el-tabs--card>.el-tabs__header .el-tabs__nav {
+            border: 0 none;
+        }
+
+        .el-tabs--card>.el-tabs__header .el-tabs__item {
+            border-left: 0 none;
+        }
+
+        .el-tabs--card>.el-tabs__header .el-tabs__item.is-active.is-closable,
+        .el-tabs--card>.el-tabs__header .is-active {
+            border: 1px solid var(--el-border-color-light);
+            border-radius: var(--el-border-radius-base) var(--el-border-radius-base) 0 0;
+            border-bottom: 0 none;
+            margin-top: 2px;
+        }
+
+        /*修改时间轴字体颜色*/
+        .el-timeline-item__content {
+            color: var(--el-text-color-regular);
+        }
+
+        /*修改日期默认宽度长一点的问题*/
+        .el-date-editor {
+            --el-date-editor-width: 215px;
+            --el-date-editor-monthrange-width: 300px;
+            --el-date-editor-daterange-width: 350px;
+            --el-date-editor-datetimerange-width: 400px;
+        }
+
+        /*解决el-select在IOS下可清除状态时有值时要点两次才弹出选择框问题*/
+        .el-input .el-input__suffix {
+            display: contents;
+        }
+    </style>
+</body>
+
+</html>
